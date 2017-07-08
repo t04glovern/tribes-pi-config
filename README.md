@@ -38,6 +38,12 @@ dtoverlay=dwc2
 modules-load=dwc2,g_ether
 ```
 
+Your **cmdline.txt** will look something like this after the optional step
+
+```bash
+dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait modules-load=dwc2,g_ether
+```
+
 ### Enable SSH
 
 Create an empty file called **ssh** in **/boot**
