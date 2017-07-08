@@ -242,3 +242,9 @@ Login to your pi over serial using the following command
 ```bash
 $ sudo screen /dev/ttyACM0 115200
 ```
+
+If you need to disable serial login in favour of using the serial interface purly for SEND/RECEIVE, simply disable the getty service using the following command:
+
+```bash
+sudo systemctl disable getty@ttyGS0.service
+```
