@@ -154,7 +154,9 @@ mkdir -p configs/c.1/strings/0x409
 echo "Config 1: ECM network" > configs/c.1/strings/0x409/configuration
 echo 250 > configs/c.1/MaxPower
 
-# gadgets go here
+# Add functions here
+
+
 
 # End functions
 ls /sys/class/udc > UDC
@@ -206,3 +208,7 @@ $ sudo nano /boot/cmdline.txt
 ```
 
 Reboot the Pi and you have the basic setup for loading gadgets now
+
+## Optional Gadgets
+
+When adding new gadgets you place them in the **/boot/create-usb-gadgets** file between the **Add functions here** and **# End functions** comments.
