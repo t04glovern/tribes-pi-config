@@ -8,7 +8,7 @@ Configuration instructions for the Pi Zero W for Digital Tribes
 After burning your rasbian lite image run the following command to view the mounted partitions on your system
 
 ```bash
-df -h
+$ df -h
 
 Filesystem      Size   Used  Avail Capacity iused      ifree %iused  Mounted on
 /dev/disk1     346Gi  335Gi   10Gi    98% 3732570 4291234709    0%   /
@@ -24,7 +24,7 @@ Notice that the last image **/Volumes/boot** is the location of our rasbian imag
 Navigate into the **boot** folder on the drive and edit the **config.txt** file
 
 ```bash
-sudo nano /Volumes/boot/config.txt
+$ sudo nano /Volumes/boot/config.txt
 ```
 At the bottom of this file add the following line to make sure we are using the dwc2 USB driver 
 
@@ -37,7 +37,7 @@ dtoverlay=dwc2
 Create an empty file called **ssh** in **/boot**
 
 ```bash
-sudo touch /Volumes/boot/ssh
+$ sudo touch /Volumes/boot/ssh
 ```
 
 ### Setup Headless WiFi connection
@@ -61,12 +61,12 @@ Connect your Pi to the powersource and give it a minute to boot. Once it's boote
 SSH in using the following command
 
 ```bash
-ssh pi@raspberrypi.local
+$ ssh pi@raspberrypi.local
 ```
 
 The user details by default are:
 
-```base
+```yaml
 user: pi
 pass: raspberry
 ```
@@ -76,7 +76,7 @@ pass: raspberry
 Change the default **pi** user password by typing the following:
 
 ```bash
-passwd
+$ passwd
 
 Changing password for pi.
 (current) UNIX password: raspberry
