@@ -212,3 +212,33 @@ Reboot the Pi and you have the basic setup for loading gadgets now
 ## Optional Gadgets
 
 When adding new gadgets you place them in the **/boot/create-usb-gadgets** file between the **Add functions here** and **# End functions** comments.
+
+### Serial Adapter
+
+Edit the **/boot/create-usb-gadgets** file
+
+```bash
+$ sudo nano /boot/create-usb-gadgets
+```
+
+Add the following lines (Between **Add functions here** and **# End functions** remember)
+
+```bash
+# Serial Adapter Gadget
+mkdir -p functions/acm.usb0
+ln -s functions/acm.usb0 configs/c.1/
+```
+
+Then if you want to enable the Serial console to login with run the following
+
+```bash
+$ sudo systemctl enable getty@ttyGS0.service
+```
+
+Login to your pi over serial using the following command
+
+**NOTE**: *Your USB serial adapter might be named something else depending on what drivers you have installed. For example mine was called **/dev/tty.usbmodem1421**
+
+```bash
+$ sudo screen /dev/ttyACM0 115200
+```
