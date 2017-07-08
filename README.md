@@ -32,6 +32,12 @@ At the bottom of this file add the following line to make sure we are using the 
 dtoverlay=dwc2
 ```
 
+**OPTIONAL**: If you can't connect to the device over WiFi, add the following after **rootwait** in the **/boot/cmdline.txt** file. You'll be removing these later on in the tutorial.
+
+```bash
+modules-load=dwc2,g_ether
+```
+
 ### Enable SSH
 
 Create an empty file called **ssh** in **/boot**
@@ -52,7 +58,7 @@ network={
 }
 ```
 
-## Booting and Configuring Modules
+## Booting and Configuring System
 
 ### Connecting over SSH
 
@@ -103,6 +109,8 @@ $ sudo nano /etc/modules
 
 dwc2
 ```
+
+## Setting up system for gadgets
 
 ### Create USB Gadget script
 
