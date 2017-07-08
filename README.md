@@ -103,3 +103,25 @@ $ sudo nano /etc/modules
 
 dwc2
 ```
+
+### Enable libcomposite
+
+Enable the libcomposite driver by running the following.
+
+```bash
+$ sudo echo "libcomposite" | sudo tee -a /etc/modules
+```
+
+Also confirm the entry is in **/etc/modules**
+
+```bash
+$ sudo nano /etc/modules
+
+# /etc/modules: kernel modules to load at boot time.
+#
+# This file contains the names of kernel modules that should be loaded
+# at boot time, one per line. Lines beginning with "#" are ignored.
+
+dwc2
+libcomposite
+```
