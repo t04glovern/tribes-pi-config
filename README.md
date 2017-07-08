@@ -1,7 +1,9 @@
 # tribes-pi-config
 Configuration instructions for the Pi Zero W for Digital Tribes
 
-## USB On The Go setup
+## Headless Configuration
+
+### USB On The Go setup
 
 After burning your rasbian lite image run the following command to view the mounted partitions on your system
 
@@ -30,10 +32,22 @@ At the bottom of this file add the following line to make sure we are using the 
 dtoverlay=dwc2
 ```
 
-## Enable SSH
+### Enable SSH
 
 Create an empty file called **ssh** in **/boot**
 
 ```bash
 sudo touch /Volumes/boot/ssh
+```
+
+### Setup Headless WiFi connection
+
+Create another file in **/boot** called **wpa_supplicant.conf** and add your WiFi configuration
+
+```bash
+network={
+  ssid="SSID"
+  psk="password"
+  key_mgmt=WPA-PSK
+}
 ```
