@@ -104,24 +104,88 @@ $ sudo nano /etc/modules
 dwc2
 ```
 
-### Enable libcomposite
+### Create USB Gadget script
 
-Enable the libcomposite driver by running the following.
+Create a file in **/boot** called **create-usb-gadgets**
 
 ```bash
-$ sudo echo "libcomposite" | sudo tee -a /etc/modules
+$ sudo nano /boot/create-usb-gadgets
 ```
 
-Also confirm the entry is in **/etc/modules**
+Add the following contents to the file
+
+**NOTE**: *The Linux USB website has a full list of Vendor IDs and Device IDs: http://www.linux-usb.org/usb.ids*
 
 ```bash
-$ sudo nano /etc/modules
+#!/bin/sh
 
-# /etc/modules: kernel modules to load at boot time.
-#
-# This file contains the names of kernel modules that should be loaded
-# at boot time, one per line. Lines beginning with "#" are ignored.
+# Load libcomposite
+modprobe libcomposite
 
-dwc2
-libcomposite
+# Create a gadget called usb-gadgets
+cd /sys/kernel/config/usb_gadget/
+mkdir -p usb-gadgets
+cd usb-gadgets
+
+# Configure our gadget details
+echo 0x1d6b > idVendor # Linux Foundation
+echo 0x0104 > idProduct # Multifunction Composite Gadget
+echo 0x0100 > bcdDevice # v1.0.0
+echo 0x0200 > bcdUSB # USB2
+mkdir -p strings/0x409
+echo "fedcba9876543210" > strings/0x409/serialnumber
+echo "Pi Zero W USB Gadget" > strings/0x409/manufacturer
+echo "Pi Zero W USB Gadget" > strings/0x409/product
+mkdir -p configs/c.1/strings/0x409
+echo "Config 1: ECM network" > configs/c.1/strings/0x409/configuration
+echo 250 > configs/c.1/MaxPower
+
+# Ethernet gadget
+mkdir -p functions/ecm.usb0
+# first byte of address must be even
+HOST="48:6f:73:74:50:43" # "HostPC"
+SELF="42:61:64:55:53:42" # "BadUSB"
+echo $HOST > functions/ecm.usb0/host_addr
+echo $SELF > functions/ecm.usb0/dev_addr
+ln -s functions/ecm.usb0 configs/c.1/
+
+# End functions
+ls /sys/class/udc > UDC
+```
+
+Make this script executable so that we can run it:
+
+```bash
+$ sudo chmod +x /boot/create-usb-gadgets
+```
+
+### Run USB Gadget script on boot
+
+Create a new systemd service by running the following command
+
+```bash
+$ sudo nano /etc/systemd/system/create-usb-gadgets.service
+```
+
+Populate this file with the following
+
+```bash
+[Unit]
+Description=Create USB gadgets
+
+[Service]
+Type=oneshot
+ExecStart=/boot/create-usb-gadgets
+StandardInput=tty
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Finally enable the service
+
+```bash
+$ sudo systemctl daemon-reload
+$ sudo systemctl enable create-usb-gadgets
 ```
