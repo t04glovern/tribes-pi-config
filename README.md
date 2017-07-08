@@ -54,6 +54,8 @@ network={
 
 ## Booting and Configuring Modules
 
+### Connecting over SSH
+
 Connect your Pi to the powersource and give it a minute to boot. Once it's booted you should be able to connect to your pi over **raspberrypi.local** if you have the Bonjour service setup on your system. Otherwise find the IP address of the Pi through your router/AP's connected device list
 
 SSH in using the following command
@@ -67,4 +69,18 @@ The user details by default are:
 ```base
 user: pi
 pass: raspberry
+```
+
+### Change the default password
+
+Change the default **pi** user password by typing the following:
+
+```bash
+passwd
+
+Changing password for pi.
+(current) UNIX password: raspberry
+Enter new UNIX password: <nice-try>
+Retype new UNIX password: <nice-try>
+passwd: password updated successfully
 ```
