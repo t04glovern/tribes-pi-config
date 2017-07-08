@@ -84,3 +84,22 @@ Enter new UNIX password: <nice-try>
 Retype new UNIX password: <nice-try>
 passwd: password updated successfully
 ```
+
+### Enable the dwc2 USB driver in rasbian
+
+```bash
+$ echo "dwc2" | sudo tee -a /etc/modules
+```
+
+You can open the **/etc/modules** file to confirm **dwc2** is now listed there
+
+```bash
+$ sudo nano /etc/modules
+
+# /etc/modules: kernel modules to load at boot time.
+#
+# This file contains the names of kernel modules that should be loaded
+# at boot time, one per line. Lines beginning with "#" are ignored.
+
+dwc2
+```
