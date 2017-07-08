@@ -17,9 +17,9 @@ map auto_home    0Bi    0Bi    0Bi   100%       0          0  100%   /home
 /dev/disk2s1    41Mi   21Mi   20Mi    51%       0          0  100%   /Volumes/boot
 ```
 
-Notice that the last image */Volumes/boot* is the location of our rasbian image on the MicroSD
+Notice that the last image **/Volumes/boot** is the location of our rasbian image on the MicroSD
 
-Navigate into the *boot* folder on the drive and edit the *config.txt* file
+Navigate into the **boot** folder on the drive and edit the **config.txt** file
 
 ```bash
 sudo nano /Volumes/boot/config.txt
@@ -32,7 +32,7 @@ dtoverlay=dwc2
 
 ## Enable SSH
 
-Create an empty file called *ssh* in */boot*
+Create an empty file called **ssh** in **/boot**
 
 ```bash
 sudo touch /Volumes/boot/ssh
