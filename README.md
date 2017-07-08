@@ -140,14 +140,7 @@ mkdir -p configs/c.1/strings/0x409
 echo "Config 1: ECM network" > configs/c.1/strings/0x409/configuration
 echo 250 > configs/c.1/MaxPower
 
-# Ethernet gadget
-mkdir -p functions/ecm.usb0
-# first byte of address must be even
-HOST="48:6f:73:74:50:43" # "HostPC"
-SELF="42:61:64:55:53:42" # "BadUSB"
-echo $HOST > functions/ecm.usb0/host_addr
-echo $SELF > functions/ecm.usb0/dev_addr
-ln -s functions/ecm.usb0 configs/c.1/
+# gadgets go here
 
 # End functions
 ls /sys/class/udc > UDC
@@ -189,3 +182,13 @@ Finally enable the service
 $ sudo systemctl daemon-reload
 $ sudo systemctl enable create-usb-gadgets
 ```
+
+### Clean up existing modules_load
+
+If you used a guide that had you add **modules-load=dwc2,g_ether** to **/boot/cmdline.txt** you can remove these from the file now
+
+```bash
+$ sudo nano /boot/cmdline.txt
+```
+
+Reboot the Pi and you have the basic setup for loading gadgets now
