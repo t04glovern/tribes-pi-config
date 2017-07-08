@@ -3,7 +3,7 @@ Configuration instructions for the Pi Zero W for Digital Tribes
 
 ## Headless Configuration
 
-### USB On The Go setup
+### USB dwc2 USB driver prep
 
 After burning your rasbian lite image run the following command to view the mounted partitions on your system
 
@@ -50,4 +50,21 @@ network={
   psk="password"
   key_mgmt=WPA-PSK
 }
+```
+
+## Booting and Configuring Modules
+
+Connect your Pi to the powersource and give it a minute to boot. Once it's booted you should be able to connect to your pi over **raspberrypi.local** if you have the Bonjour service setup on your system. Otherwise find the IP address of the Pi through your router/AP's connected device list
+
+SSH in using the following command
+
+```bash
+ssh pi@raspberrypi.local
+```
+
+The user details by default are:
+
+```base
+user: pi
+pass: raspberry
 ```
