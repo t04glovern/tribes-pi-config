@@ -5,6 +5,3 @@ sudo apt-get install python-pip
 
 # Install the python development packages
 sudo apt-get install python-dev
-
-# Make scripts directory
-mkdir /home/pi/scripts
