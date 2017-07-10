@@ -1,7 +1,8 @@
 #!/bin/sh
 
 # Install Python2.7 pip + dependencies
-sudo apt-get install python-pip
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python get-pip.py
 
 # Upgrade pip
 sudo pip install -U pip
