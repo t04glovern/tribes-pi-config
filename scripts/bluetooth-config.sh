@@ -15,3 +15,8 @@ pip install pybluez
 # Reload the systemd daemon and restart bluetooth service
 sudo systemctl daemon-reload
 sudo systemctl restart bluetooth
+
+# Configure the bluetooth serial interface
+sudo hciconfig hci0 piscan
+sudo hciconfig hci0 name 'NODE-001'
+sudo hciconfig hci0 up
