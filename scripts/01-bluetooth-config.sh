@@ -10,10 +10,10 @@ sudo apt-get install pkg-config libboost-python-dev libboost-thread-dev libglib2
 sudo pip install pyserial
 
 # Install the PyBluez bluetooth wrappers
-pip install pybluez
+sudo pip install pybluez
 
 # Install the PyBluez bluetooth low energy wrappers
-pip install pybluez[ble]
+sudo pip install pybluez[ble]
 
 # Append --compat to the ExecStart line (someone write the sed for this)
 #sudo nano /lib/systemd/system/bluetooth.service
