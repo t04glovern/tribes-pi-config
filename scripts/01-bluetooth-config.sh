@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# Set bluetooth name
 sudo echo PRETTY_HOSTNAME=raspberrypi > /etc/machine-info
 
 # Install the bluetooth development packages
