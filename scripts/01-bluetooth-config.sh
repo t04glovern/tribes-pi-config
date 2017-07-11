@@ -6,12 +6,6 @@ sudo apt-get install libbluetooth-dev
 # Install the bluetooth low engery rependencies
 sudo apt-get install pkg-config libboost-python-dev libboost-thread-dev libglib2.0-dev
 
-# Install pySerial for serial communication
-sudo pip install pyserial
-
-# Install the PyBluez bluetooth wrappers
-sudo pip install pybluez
-
 # Install the PyBluez bluetooth low energy wrappers
 sudo pip install pybluez[ble]
 
