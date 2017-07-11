@@ -15,3 +15,4 @@ sudo systemctl restart bluetooth
 # Configure the bluetooth serial interface
 sudo hciconfig hci0 up
 sudo hciconfig hci0 piscan
+sudo hciconfig hci0 name 'NODE-001'
