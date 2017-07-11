@@ -6,6 +6,9 @@ sudo echo PRETTY_HOSTNAME=raspberrypi > /etc/machine-info
 # Install the bluetooth development packages
 sudo apt-get install libbluetooth-dev
 
+# Install pybluez
+sudo pip install pybluez
+
 # Reload the systemd daemon and restart bluetooth service
 sudo systemctl daemon-reload
 sudo systemctl restart bluetooth
