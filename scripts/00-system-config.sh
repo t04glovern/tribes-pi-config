@@ -9,3 +9,9 @@ sudo pip install -U pip
 
 # Install the python development packages
 sudo apt-get install python-dev
+
+# Install Git
+sudo apt-get install git
+
+# Install pySerial for serial communication
+sudo pip install pyserial
