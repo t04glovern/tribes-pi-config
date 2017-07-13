@@ -1,0 +1,10 @@
+[Unit]
+Description=Running the Python bluetooth-server
+After=network.target, bluetooth.target
+
+[Service]
+ExecStart=/usr/bin/python /home/pi/tribes-pi-config/runtime-scripts/bluetooth-server.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
