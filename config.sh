@@ -29,3 +29,8 @@ if [ "$current_hostname" == "$rasp" ]; then
 fi
 
 echo ">>>Hostname is ${current_hostname}"
+echo '>>>Running system config'
+sudo /bin/sh /home/pi/tribes-pi-config/setup/00-system-config.sh
+
+echo '>>>Running bluetooth config'
+sudo /bin/sh /home/pi/tribes-pi-config/setup/01-bluetooth-config.sh
