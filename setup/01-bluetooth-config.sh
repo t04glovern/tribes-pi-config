@@ -27,3 +27,5 @@ sudo chmod 644 /lib/systemd/system/bluetooth-server.service
 echo ">>>Reloading the systemd daemon and bluetooth services"
 sudo systemctl daemon-reload
 sudo systemctl restart bluetooth
+sudo systemctl enable bluetooth-server
+sudo systemctl restart bluetooth-server
