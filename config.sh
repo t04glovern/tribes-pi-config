@@ -4,8 +4,8 @@
 current_hostname="$(cat /etc/hostname)"
 rasp='raspberrypi'
 
-echo '>>>Hostname must be changed for node network'
 if [ "$current_hostname" == "$rasp" ]; then
+    echo '>>>Hostname must be changed for node network'
     echo 'Enter Node name, followed by [ENTER]:'
     read node_name
     while true; do
@@ -27,3 +27,5 @@ if [ "$current_hostname" == "$rasp" ]; then
     echo ">>>Rebooting system to apply hostname"
     sudo reboot
 fi
+
+echo ">>>Hostname is ${current_hostname}"

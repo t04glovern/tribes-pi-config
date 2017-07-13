@@ -1,8 +1,10 @@
 #!/bin/sh
 
 echo ">>>Installing Python2.7 pip + dependencies"
+cd /home/pi
 wget https://bootstrap.pypa.io/get-pip.py
 sudo /usr/bin/python get-pip.py
+sudo rm /home/pi/get-pip.py
 
 echo ">>>Upgrading pip"
 sudo pip install -U pip

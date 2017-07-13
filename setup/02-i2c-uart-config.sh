@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #Note: Try to use NMEA 2.1 if possible
 #If using NEO- brand GPS modules this is configurable
