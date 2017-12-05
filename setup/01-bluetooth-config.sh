@@ -28,4 +28,4 @@ echo ">>>Reloading the systemd daemon and bluetooth services"
 sudo systemctl daemon-reload
 sudo systemctl restart bluetooth
 sudo systemctl enable bluetooth-server
-sudo systemctl restart bluetooth-server
+sudo systemctl restart bluetooth-server
